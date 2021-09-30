@@ -5,7 +5,7 @@ using namespace std;
 class Date
 {
 	private:
-	int d,m,y;
+	int d,m,y,s;
 	
 	public:
 	int f;
@@ -18,6 +18,8 @@ class Date
 		cin>>m;
 		cout<<"Year: ";
 		cin>>y;
+		cout << "Second: ";
+		cin >> z
 	}
 	
 	void check()
@@ -50,9 +52,13 @@ class Date
 				else
 				cout<<"Not Valid ";
 			}
+			else if {
+				cout << "Not Valid here. Junk code " << endl;
+			}
 			
 			else
-			cout<<"Not Valid ";
+			cout<<"Not Valid, yes ";
+			
 		}
 		else
 		cout<<"Not Valid ";
