@@ -1,283 +1,75 @@
-<<<<<<< HEAD:Date.cpp
-
 #include <iostream>
 using namespace std;
 
-class Date
-{
-	private:
-	int d,m,y;
-	
-	public:
-	int f;
-
-	void input()
-	{
-		cout<<"Date: ";
-		cin>>d;
-		cout<<"Month: ";
-		cin>>m;
-		cout<<"Year: ";
-		cin>>y;
-	}
-	
-	void check()
-	{
-		if(y>1000&&y<4000)
-		{
-			if((m==1||m==3||m==5||m==7||m==8||m==10||m==12)&&d>0&&d<=31)
-			{
-				cout<<"Valid ";
-				f=1;
-			}		
-			else if((m==4||m==6||m==9||m==11)&&d>0&&d<31)
-			{
-				cout<<"Valid ";
-				f=1;
-			}
-			
-			else if(m==2)
-			{
-				if(y%4==0&&d>0&&d<=29)
-				{
-					cout<<"Valid ";
-					f=1;
-				}
-				else if(d>0&&d<29)
-				{
-					cout<<"Valid ";
-					f=1;
-				}
-				else
-				cout<<"Not Valid ";
-			}
-			
-			else
-			cout<<"Not Valid ";
-		}
-		else
-		cout<<"Not Valid ";
-	}
-	
-	void next()
-	{
-		if(f==1)
-		{
-			if(m==1||m==3||m==5||m==7||m==8||m==10)
-			{
-				if(d<31)
-				d++;
-				else if(d==31)
-				{
-					m++;
-					d=1;
-				}
-			}
-			
-			else if(m==4||m==6||m==9||m==11)
-			{
-				if(d<30)
-				d++;
-				else if(d==30)
-				{
-					m++;
-					d=1;
-				}
-			}
-			else if(m==2)
-			{
-				if(y%4==0)
-				{
-					if(d<29)
-					d++;
-					else if(d==29)
-					{
-						m++;
-						d=1;
-					}
-				}
-				else 
-				{
-					if(d<28)
-					d++;
-					else if(d==28)
-					{
-						m++;
-						d=1;
-					}
-				}
-			}
-			else if(m==12)
-			{
-				if(d<31)
-				d++;
-				else if(d==31)
-				{
-					y++;
-					m=1;
-					d=1;
-				}
-			}
-			cout<<"Next Date:"<<d<<"/"<<m<<"/"<<y<<endl;
-		}
-	}
+class dates {
+  private:
+    int day, month, year, last;
+  public:
+    void input();
+  void Month();
+  void Day();
+  void output();
+  void valid();
 };
-	
-		
 
-int main()
-{
-	Date a;
-	a.input();
-	a.check();
-	a.next();
-	Date b;
-	b.input();
-	b.check();
-	b.next();
-	return 0;
+void dates::input() {
+  cout << "\nEnter the Date DD MM YYYY :";
+  cin >> day >> month >> year;
+}
+//Month
+void dates::Month() {
+  if (month > 0 && month <= 12) {
+    if (month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12) {
+      last = 31;
+      Day();
+    } else if (month == 4 || month == 6 || month == 9 || month == 11) {
+      last = 30;
+      Day();
+    } else if (month == 2) {
+      if ((year % 4 == 0) && (year % 100 != 0) || (year % 400 == 0)) {
+        last = 29;
+        Day();
+      } else {
+        last = 28;
+        Day();
+      }
+    }
+  } else
+    cout << "Invalid";
+}
+//Day
+void dates::Day() {
+  if (day > 0 && day <= last) {
+    valid();
+
+  } else
+    cout << "Invalid";
+}
+//output
+void dates::output() {
+  if (day == last) {
+    if (month == 12) {
+      day = 1;
+      month = 1;
+      year++;
+    } else {
+      day = 1;
+      month++;
+    }
+  } else if (day != last) {
+    day++;
+  }
+  cout << day << "/" << month << "/" << year;
+}
+//valid
+void dates::valid() {
+  cout << "\n Valid \n";
+  output();
 }
 
-=======
-
-#include <iostream>
-using namespace std;
-
-class Date
-{
-	private:
-	int d,m,y,s;
-	
-	public:
-	int f;
-
-	void input()
-	{
-		cout<<"Date: ";
-		cin>>d;
-		cout<<"Month: ";
-		cin>>m;
-		cout<<"Year: ";
-		cin>>y;
-		cout << "Second: ";
-		cin >> z
-	}
-	
-	void check()
-	{
-		if(y>1000&&y<4000)
-		{
-			if((m==1||m==3||m==5||m==7||m==8||m==10||m==12)&&d>0&&d<=31)
-			{
-				cout<<"Valid ";
-				f=1;
-			}		
-			else if((m==4||m==6||m==9||m==11)&&d>0&&d<31)
-			{
-				cout<<"Valid ";
-				f=1;
-			}
-			
-			else if(m==2)
-			{
-				if(y%4==0&&d>0&&d<=29)
-				{
-					cout<<"Valid ";
-					f=1;
-				}
-				else if(d>0&&d<29)
-				{
-					cout<<"Valid ";
-					f=1;
-				}
-				else
-				cout<<"Not Valid ";
-			}
-			else if {
-				cout << "Not Valid here. Junk code " << endl;
-			}
-			
-			else
-			cout<<"Not Valid, yes ";
-			
-		}
-		else
-		cout<<"Not Valid ";
-	}
-	
-	void next()
-	{
-		if(f==1)
-		{
-			if(m==1||m==3||m==5||m==7||m==8||m==10)
-			{
-				if(d<31)
-				d++;
-				else if(d==31)
-				{
-					m++;
-					d=1;
-				}
-			}
-			
-			else if(m==4||m==6||m==9||m==11)
-			{
-				if(d<30)
-				d++;
-				else if(d==30)
-				{
-					m++;
-					d=1;
-				}
-			}
-			else if(m==2)
-			{
-				if(y%4==0)
-				{
-					if(d<29)
-					d++;
-					else if(d==29)
-					{
-						m++;
-						d=1;
-					}
-				}
-				else 
-				{
-					if(d<28)
-					d++;
-					else if(d==28)
-					{
-						m++;
-						d=1;
-					}
-				}
-			}
-			else if(m==12)
-			{
-				if(d<31)
-				d++;
-				else if(d==31)
-				{
-					y++;
-					m=1;
-					d=1;
-				}
-			}
-			cout<<"Next Date:"<<d<<"/"<<m<<"/"<<y<<endl;
-		}
-	}
-};
-	
-		
-
-int main()
-{
-	Date a;
-	a.input();
-	a.check();
-	a.next();
-	return 0;
+int main() {
+  dates d;
+  d.input();
+  d.Month();
+  return 0;
 }
-
->>>>>>> ca3e17c78dfca04eaece79a915c696143f6d5f0e:Date.cxx
