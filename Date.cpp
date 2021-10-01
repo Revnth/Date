@@ -14,29 +14,31 @@ class dates {
 
 void dates::input() {
   cout << "\nEnter the Date DD MM YYYY :";
-  cin >> day >> month >> year;
+  cin >> day;
+  cin >> month;
+  cin >> year;
 }
 //Month
-void dates::Month() {
-  if (month > 0 && month <= 12) {
-    if (month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12) {
+ void dates::Month() {
+    if (month > 0 && month <= 12) {
+        if (month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12) {
       last = 31;
-      Day();
+       Day();
     } else if (month == 4 || month == 6 || month == 9 || month == 11) {
-      last = 30;
+       last = 30;
       Day();
     } else if (month == 2) {
       if ((year % 4 == 0) && (year % 100 != 0) || (year % 400 == 0)) {
-        last = 29;
+         last = 29;
         Day();
-      } else {
+        } else {
         last = 28;
-        Day();
+         Day();
       }
-    }
+      }
   } else
     cout << "Invalid";
-}
+} 
 //Day
 void dates::Day() {
   if (day > 0 && day <= last) {
@@ -47,12 +49,12 @@ void dates::Day() {
 }
 //output
 void dates::output() {
-  if (day == last) {
-    if (month == 12) {
-      day = 1;
-      month = 1;
+    if (day == last) {
+     if (month == 12) {
+        day = 1;
+           month = 1;
       year++;
-    } else {
+     } else {
       day = 1;
       month++;
     }
@@ -67,9 +69,12 @@ void dates::valid() {
   output();
 }
 
-void main() {
-  dates d;
-  d.input();
-  d.Month();
-  getch();
+
+int main() 
+{
+   dates d;
+   d.input();
+   d.Month();
+   return 0;
+
 }
