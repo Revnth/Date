@@ -67,9 +67,9 @@ void dates::valid() {
   output();
 }
 
-int main() {
+void main() {
   dates d;
   d.input();
   d.Month();
-  return 0;
+  getch();
 }
