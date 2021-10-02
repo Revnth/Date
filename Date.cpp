@@ -67,9 +67,13 @@ void dates::valid() {
   output();
 }
 
-int main() {
-  dates d;
-  d.input();
-  d.Month();
-  return 0;
+
+
+int main() 
+{
+   dates d;
+   d.input();
+   d.Month();
+   return 0;
+
 }
