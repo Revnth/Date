@@ -1,4 +1,5 @@
 #include <iostream>
+#include<conio.h>
 using namespace std;
 
 class dates {
@@ -16,7 +17,7 @@ void dates::input() {
   cout << "\nEnter the Date DD MM YYYY :";
   cin >> day >> month >> year;
 }
-//Month
+// For Month
 void dates::Month() {
   if (month > 0 && month <= 12) {
     if (month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12) {
@@ -37,7 +38,7 @@ void dates::Month() {
   } else
     cout << "Invalid";
 }
-//Day
+// For Day
 void dates::Day() {
   if (day > 0 && day <= last) {
     valid();
